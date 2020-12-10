@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-const SpotSchema = new mongoose.Schema({
-    thumbnail: String,
-    company: String,
+const RestaurantSchema = new mongoose.Schema({
+    image: String,
+    name: String,
     price: Number,
-    techs: [String],
+    dishes: [String],
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -16,8 +16,8 @@ const SpotSchema = new mongoose.Schema({
 });
 
 
-SpotSchema.virtual('thumbnail_url').get(function() {
+RestaurantSchema.virtual('thumbnail_url').get(function() {
     return `http://localhost:3333/files/${this.thumbnail}`
 })
 
-module.exports = mongoose.model('Spot', SpotSchema);
+module.exports = mongoose.model('Restaurant', RestaurantSchema);

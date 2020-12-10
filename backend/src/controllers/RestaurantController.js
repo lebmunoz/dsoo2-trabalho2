@@ -1,18 +1,18 @@
 const User = require('../models/User');
-const Spot = require('../models/Spot');
+const Restaurant = require('../models/Restaurant');
 
 module.exports = {
     async index(req, res) {
-        const { tech } = req.query;
+        const { dish } = req.query;
 
-        const spots = await Spot.find({ techs: tech })
+        const restaurants = await Restaurant.find({ dishes: dish })
 
-        return res.json(spots);
+        return res.json(restaurants);
     },
     
     async store(req, res) {
         const { filename } = req.file;
-        const { company, techs, price } = req.body;
+        const { name, dishes, price } = req.body;
         const { user_id } = req.headers;
 
         const user = await User.findById(user_id);
@@ -21,14 +21,14 @@ module.exports = {
             return res.status(400).json({ error: 'User does not exists' });
         }
 
-        const spot = await Spot.create({
+        const restaurant = await Restaurant.create({
             user: user_id,
             thumbnail: filename,
-            company,
-            techs: techs.split(',').map(tech => tech.trim()), 
+            name,
+            dishes: dishes.split(',').map(dish => dish.trim()), 
             price
         })
 
-        return res.json(spot)
+        return res.json(restaurant)
     }
 }

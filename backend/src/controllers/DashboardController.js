@@ -1,11 +1,11 @@
-const Spot = require('../models/Spot')
+const Restaurant = require('../models/Restaurant')
 
 module.exports = {
     async show(req, res) {
         const { user_id } = req.headers;
 
-        const spots = await Spot.find({ user: user_id})
+        const restaurants = await Restaurant.find({ user: user_id})
 
-        return res.json(spots);
+        return res.json(restaurants);
     }
 }
