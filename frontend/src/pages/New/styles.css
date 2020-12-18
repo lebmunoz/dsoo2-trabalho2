@@ -1,4 +1,4 @@
-label#thumbnail {
+label#image {
   margin-bottom: 20px;
   border: 1px dashed #ddd;
   background-size: cover;
@@ -10,15 +10,15 @@ label#thumbnail {
   align-items: center;
 }
 
-label#thumbnail input {
+label#image input {
   display: none;
 
 }
 
-label#thumbnail.has-thumbnail {
+label#image.has-image {
   border: 0;
 }
 
-label#thumbnail.has-thumbnail img {
+label#image.has-image img {
   display: none;
 }

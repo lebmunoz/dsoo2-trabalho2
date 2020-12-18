@@ -18,7 +18,7 @@ export default function Login({ history }) {
   return (
     <>
       <p>
-          Ofereça <strong>spots</strong> para seus programadores e encontre <strong>talentos</strong> para sua empresa
+          Ofereça reservas em <strong>restaurantes</strong> para seus clientes com <strong>pratos</strong> apetitosos
       </p>
       
       <form onSubmit={handleSubmit}>

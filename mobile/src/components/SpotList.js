@@ -4,18 +4,18 @@ import { Text, View, StyleSheet, FlatList, Image, TouchableOpacity } from 'react
 
 import api from '../services/api'
 
-function SpotList({ tech, navigation }) {
-  const [spots, setSpots] = useState([]);
+function RestaurantList({ dish, navigation }) {
+  const [restaurants, setRestaurants] = useState([]);
   
   useEffect(() => {
-    async function loadSpots() {
-      const response = await api.get('/spots', {
-        params: { tech }
+    async function loadRestaurants() {
+      const response = await api.get('/restaurants', {
+        params: { dish }
       })
 
-      setSpots(response.data);
+      setRestaurants(response.data);
     }
-    loadSpots();
+    loadRestaurants();
   }, []);
 
   function handleNavigate(id) {
@@ -24,19 +24,19 @@ function SpotList({ tech, navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Empresas que usam <Text style={styles.bold}>{tech}</Text></Text>
+      <Text style={styles.title}>Restaurantes que possuem <Text style={styles.bold}>{dish}</Text></Text>
 
       <FlatList
         style={styles.list}
-        data={spots}
-        keyExtractor={spot => spot._id}
+        data={restaurants}
+        keyExtractor={restaurant => restaurant._id}
         horizontal
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
           <View style={styles.listItem}>
-            <Image style={styles.thumbnail} source={{ uri: item.thumbnail_url }} />
-            <Text style={styles.company}>{item.company}</Text>
-            <Text style={styles.price}>{item.price ? `R$${item.price}/dia` : 'GRATUITO'}</Text>
+            <Image style={styles.image} source={{ uri: item.image_url }} />
+            <Text style={styles.name}>{item.name}</Text>
+            <Text style={styles.price}>{item.price ? `R$${item.price}/pessoa` : 'GRATUITO'}</Text>
             <TouchableOpacity onPress={() => handleNavigate(item.id)} style={styles.button}>
               <Text style={styles.buttonText}>Solicitar Reserva</Text>
             </TouchableOpacity>
@@ -71,14 +71,14 @@ const styles = StyleSheet.create({
     marginRight: 15,
   },
 
-  thumbnail: {
+  image: {
     width: 200,
     height: 120,
     resizeMode: 'cover',
     borderRadius: 2,
   },
 
-  company: {
+  name: {
     fontSize: 24,
     fontWeight: 'bold',
     color: '#333',
@@ -107,4 +107,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withNavigation(SpotList);
+export default withNavigation(RestaurantList);

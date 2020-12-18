@@ -16,8 +16,8 @@ const RestaurantSchema = new mongoose.Schema({
 });
 
 
-RestaurantSchema.virtual('thumbnail_url').get(function() {
-    return `http://localhost:3333/files/${this.thumbnail}`
+RestaurantSchema.virtual('image_url').get(function() {
+    return `http://localhost:3333/files/${this.image}`
 })
 
 module.exports = mongoose.model('Restaurant', RestaurantSchema);

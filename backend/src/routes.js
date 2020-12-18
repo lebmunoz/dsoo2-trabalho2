@@ -14,7 +14,7 @@ const routes = express.Router();
 const upload = multer(uploadConfig);
 
 routes.post('/sessions', SessionController.store);
-routes.post('/restaurants', upload.single('thumbnail'), RestaurantController.store);
+routes.post('/restaurants', upload.single('image'), RestaurantController.store);
 routes.get('/restaurants', RestaurantController.index);
 routes.get('/dashboard', DashboardController.show);
 

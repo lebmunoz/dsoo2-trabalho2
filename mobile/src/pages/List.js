@@ -3,10 +3,10 @@ import socketio from 'socket.io-client';
 import { Alert, SafeAreaView, ScrollView, StyleSheet, Image, AsyncStorage } from 'react-native';
 
 import logo from '../assets/logo.png'
-import SpotList from '../components/SpotList'
+import RestaurantList from '../components/RestaurantList'
 
 export default function List() {
-  const [techs, setTechs] = useState([]);
+  const [dishes, setDishes] = useState([]);
 
   useEffect(() => {
     AsyncStorage.getItem('user').then(user_id => {
@@ -15,7 +15,7 @@ export default function List() {
       })
 
       socket.on('booking_response', booking => {
-        Alert.alert(`Sua reserva em ${booking.spot.company} em ${booking.date} foi ${booking.approved ? 'APROVADA': 'REJEITADA'}`)
+        Alert.alert(`Sua reserva em ${booking.restaurant.name} em ${booking.date} foi ${booking.approved ? 'APROVADA': 'REJEITADA'}`)
       })
     })
   }, []);
@@ -23,10 +23,10 @@ export default function List() {
   // [ReactJS, [ Node.js]]
 
   useEffect(() => {
-    AsyncStorage.getItem('techs').then(storagedTechs => {
-      const techsArray = storagedTechs.split(',').map(tech => tech.trim());
+    AsyncStorage.getItem('dishes').then(storagedDishes => {
+      const dishesArray = storagedDishes.split(',').map(dish => dish.trim());
 
-      setTechs(techsArray);
+      setDishes(dishesArray);
     })
   }, []);
   
@@ -35,7 +35,7 @@ export default function List() {
       <Image style={styles.logo} source={logo} />
 
       <ScrollView>
-        {techs.map(tech => <SpotList key={tech} tech={tech} />)}
+        {dishes.map(dish => <RestaurantList key={dish} dish={dish} />)}
       </ScrollView>
     </SafeAreaView>
   )

@@ -8,7 +8,7 @@ import logo from '../assets/logo.png';
 export default function Login({ navigation }) {
   const [email, setEmail] = useState('');
   
-  const [techs, setTechs] = useState('');
+  const [dishes, setDishes] = useState('');
 
   useEffect(() => {
     AsyncStorage.getItem('user').then(user => {
@@ -19,8 +19,8 @@ export default function Login({ navigation }) {
   }, []);
 
   async function handleSubmit() {
-    // email, techs
-    console.log(email, techs);
+    // email, dishes
+    console.log(email, dishes);
 
     const response = await api.post('/sessions', {
       email
@@ -31,7 +31,7 @@ export default function Login({ navigation }) {
     console.log(_id);
 
     await AsyncStorage.setItem('user', _id);
-    await AsyncStorage.setItem('techs', techs);
+    await AsyncStorage.setItem('dishes', dishes);
 
     navigation.navigate('List');
   }
@@ -55,19 +55,19 @@ export default function Login({ navigation }) {
 
         
 
-          <Text style={styles.label}>TECNOLOGIAS *</Text>
+          <Text style={styles.label}>PRATOS *</Text>
           <TextInput
             style={styles.input}
-            placeholder="Tecnologias de interesse"
+            placeholder="Pratos de interesse"
             placeholderTextColor="#999"
             autoCapitalize="words"
             autoCorrect={false}
-            value={techs}
-            onChangeText={setTechs}
+            value={dishes}
+            onChangeText={setDishes}
           />
           
           <TouchableOpacity onPress={handleSubmit} style={styles.button}>
-            <Text style={styles.buttonText}>Encontrar spots</Text>
+            <Text style={styles.buttonText}>Encontrar restaurantes</Text>
           </TouchableOpacity>
           
         </View>

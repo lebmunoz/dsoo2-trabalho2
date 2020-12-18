@@ -6,14 +6,14 @@ import camera from '../../assets/camera.svg'
 import './styles.css';
 
 export default function New({ history }) {
-  const [thumbnail, setThumbnail] = useState(null);
-  const [company, setCompany] = useState('');
-  const [techs, setTechs] = useState('');
+  const [image, setImage] = useState(null);
+  const [name, setName] = useState('');
+  const [dishes, setDishes] = useState('');
   const [price, setPrice] = useState('');
   
   const preview = useMemo(() => {
-      return thumbnail ? URL.createObjectURL(thumbnail) : null;
-    }, [thumbnail])
+      return image ? URL.createObjectURL(image) : null;
+    }, [image])
   
   async function handleSubmit(event) {
     event.preventDefault();
@@ -21,12 +21,12 @@ export default function New({ history }) {
     const data = new FormData();
     const user_id = localStorage.getItem('user');
 
-    data.append('thumbnail', thumbnail);
-    data.append('company', company);
-    data.append('techs', techs);
+    data.append('image', image);
+    data.append('name', name);
+    data.append('dishes', dishes);
     data.append('price', price);
     
-    await api.post('/spots', data, {
+    await api.post('/restaurants', data, {
       headers: { user_id }
     })
 
@@ -36,32 +36,32 @@ export default function New({ history }) {
   return (
     <form onSubmit={handleSubmit}>
       <label 
-        id="thumbnail" 
+        id="image" 
         style={{ backgroundImage: `url(${preview})`}}
-        className={ thumbnail ? "has-thumbnail" : ""}
+        className={ image ? "has-image" : ""}
       >
-        <input type="file" onChange={event => setThumbnail(event.target.files[0])}/>
+        <input type="file" onChange={event => setImage(event.target.files[0])}/>
         <img src={camera} alt="Select img"/>
       </label>
 
-      <label htmlFor="company">EMPRESA *</label>
+      <label htmlFor="name">NOME *</label>
       <input 
-        id="company"
-        placeholder="Sua empresa ameizing"
-        onChange={event => setCompany(event.target.value)}
+        id="name"
+        placeholder="Nome do restaurante"
+        onChange={event => setName(event.target.value)}
       />
 
-      <label htmlFor="techs">TECNOLOGIAS *</label>
+      <label htmlFor="dishes">PRATOS *</label>
       <input 
-        id="techs"
-        placeholder="Quais tecnologias usam?"
-        onChange={event => setTechs(event.target.value)}
+        id="dishes"
+        placeholder="Quais são os pratos do menu?"
+        onChange={event => setDishes(event.target.value)}
       />
 
-      <label htmlFor="price">VALOR DA DIÁRIA * <span>(em branco para GRATUITO)</span></label>
+      <label htmlFor="price">VALOR DA RESERVA * <span>(em branco para GRATUITO)</span></label>
       <input 
         id="price"
-        placeholder="Valor cobrado por dia"
+        placeholder="Valor cobrado por pessoa"
         value={price}
         onChange={event => setPrice(event.target.value)}
       />

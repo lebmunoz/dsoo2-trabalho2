@@ -23,7 +23,7 @@ module.exports = {
 
         const restaurant = await Restaurant.create({
             user: user_id,
-            thumbnail: filename,
+            image: filename,
             name,
             dishes: dishes.split(',').map(dish => dish.trim()), 
             price
