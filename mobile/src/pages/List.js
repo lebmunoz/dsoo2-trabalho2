@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import socketio from 'socket.io-client';
-import { Alert, SafeAreaView, ScrollView, StyleSheet, Image, AsyncStorage } from 'react-native';
+import { Alert, SafeAreaView, ScrollView, StyleSheet, Image} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import logo from '../assets/logo.png'
 import RestaurantList from '../components/RestaurantList'
@@ -10,7 +11,7 @@ export default function List() {
 
   useEffect(() => {
     AsyncStorage.getItem('user').then(user_id => {
-      const socket = socketio('http://192.168.1.110:3333', {
+      const socket = socketio('http://localhost:3333', {
         query: { user_id }
       })
 
@@ -27,7 +28,7 @@ export default function List() {
       const dishesArray = storagedDishes.split(',').map(dish => dish.trim());
 
       setDishes(dishesArray);
-    })
+    }).catch(setDishes('Nenhum'))
   }, []);
   
   return (
