@@ -1,38 +1,42 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
 
+import {useTranslation} from "react-i18next";
+
 export default function Login({ history }) {
-  const [email, setEmail] = useState('');
-  
-  async function handleSubmit(event) {
-    event.preventDefault();
-    const response = await api.post('/sessions', { email });
+    const [email, setEmail] = useState('');
 
-    const { _id } = response.data;
+    const {t} = useTranslation('login');
 
-    localStorage.setItem('user', _id);
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const response = await api.post('/sessions', { email });
 
-    history.push('/dashboard')
-  }
+        const { _id } = response.data;
 
-  return (
-    <>
-      <p>
-          Ofereça reservas em <strong>restaurantes</strong> para seus clientes com <strong>pratos</strong> apetitosos
-      </p>
-      
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">E-MAIL *</label>
-        <input 
-            id="email"
-            type="email"
-            placeholder="Insira seu e-mail"
-            value={email}
-            onChange={event => setEmail(event.target.value)}
-            />
+        localStorage.setItem('user', _id);
 
-        <button type="submit" className="btn">Entrar</button>
-      </form>
-    </>
-  )
+        history.push('/dashboard')
+    }
+
+    return (
+        <>
+            <p>
+                {t('offer')} <strong>{t('restaurant')}</strong> {t('clients')} <strong>{t('dish')}</strong> {t('appetizing')}
+            </p>
+
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="email">{t('email')}</label>
+                <input
+                    id="email"
+                    type="email"
+                    placeholder={t('insertEmail')}
+                    value={email}
+                    onChange={event => setEmail(event.target.value)}
+                />
+
+                <button type="submit" className="btn">{t('enter')}</button>
+            </form>
+        </>
+    )
 }

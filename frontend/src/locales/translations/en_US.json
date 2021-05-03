@@ -1,0 +1,31 @@
+{
+  "login": {
+    "insertEmail": "Insert your e-mail",
+    "offer": "Offer ",
+    "restaurant": "restaurant ",
+    "clients": "reservations to your customers with appetizing ",
+    "dish": "dishes",
+    "appetizing": "",
+    "email": "EMAIL *",
+    "enter": "Enter"
+  },
+  "dashboard": {
+    "requester": "is requesting a reservation at ",
+    "date": "for the date: ",
+    "accept": "ACCEPT",
+    "reject": "REJECT",
+    "people": "/people",
+    "free": "FREE",
+    "register": "Register new restaurant"
+  },
+  "new": {
+    "name": "NAME *",
+    "restaurantName": "Restaurant Name",
+    "dishes": "DISHES *",
+    "dishesFromMenu": "What are the dishes on the menu?",
+    "reservationAmount": "RESERVATION AMOUNT *",
+    "blankFree": "blank for FREE",
+    "amountPerPerson": "Amount charged per person",
+    "signUp": "Sign up"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "login": {
+    "insertEmail": "Insira seu e-mail",
+    "offer": "Ofereça reservas em ",
+    "restaurant": "restaurantes ",
+    "clients": "para seus clientes com ",
+    "dish": "pratos",
+    "appetizing": "apetitosos",
+    "email": "E-MAIL *",
+    "enter": "Entrar"
+  },
+  "dashboard": {
+    "requester": "está solicitando uma reserva em ",
+    "date": "para a data: ",
+    "accept": "ACEITAR",
+    "reject": "REJEITAR",
+    "people": "/pessoa",
+    "free": "GRATUITO",
+    "register": "Cadastrar novo restaurante"
+  },
+  "new": {
+    "name": "NOME *",
+    "restaurantName": "Nome do restaurante",
+    "dishes": "PRATOS *",
+    "dishesFromMenu": "Quais são os pratos do menu?",
+    "reservationAmount": "VALOR DA RESERVA *",
+    "blankFree": "em branco para GRATUITO",
+    "amountPerPerson":"Valor cobrado por pessoa",
+    "signUp": "Cadastrar"
+  }
+}
