@@ -20,8 +20,20 @@ function App() {
 
     return (
         <div className="container">
-            <button onClick={() => changeLanguage("en-US")}>ENGLISH</button>
-            <button onClick={() => changeLanguage("pt-BR")}>PORTUGUÊS</button>
+            <table>
+                <tr>
+                    <td>
+                        <div>
+                            <button onClick={() => changeLanguage("en-US")}>ENGLISH</button>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                             <button onClick={() => changeLanguage("pt-BR")}>PORTUGUÊS</button>
+                        </div>
+                    </td>
+                    </tr>
+            </table>
 
             <img src={logo} alt="AirCnC"/>
             <div className="content">
