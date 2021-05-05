@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Alert, SafeAreaView, StyleSheet, TextInput, TouchableOpacity, AsyncStorage, Text } from 'react-native';
+import { Alert, SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Text } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import api from '../services/api';
 

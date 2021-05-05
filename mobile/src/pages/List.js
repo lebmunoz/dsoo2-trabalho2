@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import socketio from 'socket.io-client';
-import { Alert, SafeAreaView, ScrollView, StyleSheet, Image} from 'react-native';
+import {Alert, SafeAreaView, ScrollView, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import logo from '../assets/logo.png'
 import RestaurantList from '../components/RestaurantList'
 
-export default function List() {
+export default function List({navigation}) {
   const [dishes, setDishes] = useState([]);
 
   useEffect(() => {
     AsyncStorage.getItem('user').then(user_id => {
-      const socket = socketio('http://localhost:3333', {
+      const socket = socketio('http://192.168.1.2:3333', {
         query: { user_id }
       })
 
@@ -28,8 +28,12 @@ export default function List() {
       const dishesArray = storagedDishes.split(',').map(dish => dish.trim());
 
       setDishes(dishesArray);
-    }).catch(setDishes('Nenhum'))
+    })/*.catch(setDishes('Nenhum'))*/
   }, []);
+
+  function handleNavigate() {
+    navigation.navigate('Login');
+  }
   
   return (
     <SafeAreaView style={styles.container}>
@@ -37,6 +41,9 @@ export default function List() {
 
       <ScrollView>
         {dishes.map(dish => <RestaurantList key={dish} dish={dish} />)}
+        <TouchableOpacity onPress={handleNavigate} style={styles.button}>
+          <Text style={styles.buttonText}>Voltar</Text>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   )
@@ -45,6 +52,7 @@ export default function List() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
   },
 
   logo: {
@@ -52,5 +60,20 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     alignSelf: 'center',
     marginTop: 45,
+  },
+
+  button: {
+    height: 32,
+    backgroundColor: '#f05a5b',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 2,
+    marginTop: 15,
+  },
+
+  buttonText: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    fontSize: 15,
   }
 });
