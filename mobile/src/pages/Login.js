@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import { View, KeyboardAvoidingView, /* Platform, */ Image, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -6,8 +6,12 @@ import api from '../services/api';
 
 import logo from '../assets/logo.png';
 
-export default function Login({ navigation }) {
+import {useTranslation} from "react-i18next";
+
+export default function Login({ navigation }){
   const [email, setEmail] = useState('');
+  const { i18n } = useTranslation();
+  const {t} = useTranslation('login');
   
   const [dishes, setDishes] = useState('');
 
@@ -37,15 +41,37 @@ export default function Login({ navigation }) {
     navigation.navigate('List');
   }
 
+  function english() {
+      i18n.changeLanguage("en-US");
+      console.log(i18n);
+  }
+
+  function portuguese() {
+    i18n.changeLanguage("pt-BR");
+    console.log(i18n);
+  }
+
   return (
       <KeyboardAvoidingView /* enabled={Platform.OS === 'ios'} */ behavior="padding" style={styles.container}>
+        <View style={{flexDirection:'row'}}>
+        <TouchableOpacity onPress={english}>
+          <Text style={styles.underline}>ENGLISH</Text>
+        </TouchableOpacity>
+          <Text> | </Text>
+        <TouchableOpacity onPress={portuguese}>
+          <Text style={styles.underline}>PORTUGUÊS</Text>
+        </TouchableOpacity>
+        </View>
+
+
+
         <Image source={logo} />
 
         <View style={styles.form}>
-          <Text style={styles.label}>SEU E-MAIL *</Text>
+          <Text style={styles.label}>{t('emailLabel')}</Text>
           <TextInput
             style={styles.input}
-            placeholder="Seu e-mail"
+            placeholder={t('emailPlaceholder')}
             placeholderTextColor="#999"
             keyboardType="email-address"
             autoCapitalize="none"
@@ -56,10 +82,10 @@ export default function Login({ navigation }) {
 
         
 
-          <Text style={styles.label}>PRATOS *</Text>
+          <Text style={styles.label}>{t('dishesLabel')}</Text>
           <TextInput
             style={styles.input}
-            placeholder="Pratos de interesse"
+            placeholder={t('dishesPlaceholder')}
             placeholderTextColor="#999"
             autoCapitalize="words"
             autoCorrect={false}
@@ -68,7 +94,7 @@ export default function Login({ navigation }) {
           />
           
           <TouchableOpacity onPress={handleSubmit} style={styles.button}>
-            <Text style={styles.buttonText}>Encontrar restaurantes</Text>
+            <Text style={styles.buttonText}>{t('findButton')}</Text>
           </TouchableOpacity>
           
         </View>
@@ -94,6 +120,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#444',
     marginBottom: 8,
+  },
+
+  underline: {
+    textDecorationLine: 'underline'
   },
 
   input: {

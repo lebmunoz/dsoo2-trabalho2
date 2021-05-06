@@ -1,0 +1,30 @@
+{
+  "login": {
+    "emailLabel": "YOUR EMAIL *",
+    "emailPlaceholder": "Your email",
+    "dishesLabel": "DISHES *",
+    "dishesPlaceholder": "Dishes of interest",
+    "findButton": "Find restaurants"
+  },
+
+  "list": {
+    "title": "Restaurants that have ",
+    "people": "/people",
+    "free": "FREE",
+    "reservation": "Request reservation",
+    "return": "Return",
+    "yourReservation": "You reservation in ",
+    "in": " in ",
+    "was": " was ",
+    "approved": "APPROVED",
+    "rejected": "REJECTED"
+  },
+
+  "book": {
+    "dateInterest": "DATE OF INTEREST *",
+    "dateReserve": "What date do you want to book?",
+    "request": "Request book",
+    "cancel": "Cancel",
+    "sendSolicitation": "Reservation request sent."
+  }
+}

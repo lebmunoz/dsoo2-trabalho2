@@ -3,9 +3,13 @@ import { withNavigation } from 'react-navigation';
 import { Text, View, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
 
 import api from '../services/api'
+import {useTranslation} from "react-i18next";
 
 function RestaurantList({ dish, navigation }) {
   const [restaurants, setRestaurants] = useState([]);
+
+  const { i18n } = useTranslation();
+  const {t} = useTranslation('list');
   
   useEffect(() => {
     async function loadRestaurants() {
@@ -24,7 +28,7 @@ function RestaurantList({ dish, navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Restaurantes que possuem <Text style={styles.bold}>{dish}</Text></Text>
+      <Text style={styles.title}>{t('title')}<Text style={styles.bold}>{dish}</Text></Text>
 
       <FlatList
         style={styles.list}
@@ -36,9 +40,9 @@ function RestaurantList({ dish, navigation }) {
           <View style={styles.listItem}>
             <Image style={styles.image} source={{ uri: item.image_url }} />
             <Text style={styles.name}>{item.name}</Text>
-            <Text style={styles.price}>{item.price ? `R$${item.price}/pessoa` : 'GRATUITO'}</Text>
+            <Text style={styles.price}>{item.price ? `R$${item.price}${t('people')}` : `${t('free')}`}</Text>
             <TouchableOpacity onPress={() => handleNavigate(item.id)} style={styles.button}>
-              <Text style={styles.buttonText}>Solicitar Reserva</Text>
+              <Text style={styles.buttonText}>{t('reservation')}</Text>
             </TouchableOpacity>
           </View>
         )}

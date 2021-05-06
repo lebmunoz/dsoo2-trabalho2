@@ -1,0 +1,30 @@
+{
+  "login": {
+    "emailLabel": "SEU E-MAIL *",
+    "emailPlaceholder": "Seu e-mail",
+    "dishesLabel": "PRATOS *",
+    "dishesPlaceholder": "Pratos de interesse",
+    "findButton": "Encontrar restaurantes"
+  },
+
+  "list": {
+    "title": "Restaurantes que possuem ",
+    "people": "/pessoa",
+    "free": "GRATUITO",
+    "reservation": "Solicitar reserva",
+    "return": "Voltar",
+    "yourReservation": "Sua reserva em ",
+    "in": " em ",
+    "was": " foi ",
+    "approved": "APROVADA",
+    "rejected": "REJEITADA"
+  },
+
+  "book": {
+    "dateInterest": "DATA DE INTERESSE *",
+    "dateReserve": "Qual data você quer reservar?",
+    "request": "Solicitar reserva",
+    "cancel": "Cancelar",
+    "sendSolicitation": "Solicitação de reserva enviada."
+  }
+}
