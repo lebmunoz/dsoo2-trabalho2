@@ -1,11 +1,7 @@
 {
   "login": {
     "insertEmail": "Insert your e-mail",
-    "offer": "Offer ",
-    "restaurant": "restaurant ",
-    "clients": "reservations to your customers with appetizing ",
-    "dish": "dishes",
-    "appetizing": "",
+    "description": "Offer <strong>restaurant</strong> reservations to your customers with appetizing <strong>dishes</strong>",
     "email": "EMAIL *",
     "enter": "Enter"
   },

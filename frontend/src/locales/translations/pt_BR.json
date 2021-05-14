@@ -1,11 +1,7 @@
 {
   "login": {
     "insertEmail": "Insira seu e-mail",
-    "offer": "Ofereça reservas em ",
-    "restaurant": "restaurantes ",
-    "clients": "para seus clientes com ",
-    "dish": "pratos",
-    "appetizing": "apetitosos",
+    "description": "Ofereça reservas em <strong>restaurantes</strong> para seus clientes com <strong>pratos</strong> apetitosos",
     "email": "E-MAIL *",
     "enter": "Entrar"
   },

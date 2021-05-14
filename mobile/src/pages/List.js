@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import socketio from 'socket.io-client';
 import {Alert, SafeAreaView, ScrollView, StyleSheet, Image, Text, TouchableOpacity, View} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 import logo from '../assets/logo.png'
 import RestaurantList from '../components/RestaurantList'
 import {useTranslation} from "react-i18next";
 
 export default function List({navigation}) {
   const [dishes, setDishes] = useState([]);
-
   const { i18n } = useTranslation();
   const {t} = useTranslation('list');
 

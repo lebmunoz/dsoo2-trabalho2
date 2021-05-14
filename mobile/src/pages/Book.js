@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import {Alert, SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Text, View} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-
 import api from '../services/api';
 import {useTranslation} from "react-i18next";
 
 export default function Book({ navigation }) {
   const [date, setDate] = useState('');
   const id = navigation.getParam('id');
-
   const { i18n } = useTranslation();
   const {t} = useTranslation('book');
 
@@ -22,7 +20,6 @@ export default function Book({ navigation }) {
     })
 
     Alert.alert(t('sendSolicitation'));
-
     navigation.navigate('List');
   }
 

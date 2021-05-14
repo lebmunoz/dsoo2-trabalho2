@@ -22,7 +22,7 @@ export default function Login({ history }) {
     return (
         <>
             <p>
-                {t('offer')} <strong>{t('restaurant')}</strong> {t('clients')} <strong>{t('dish')}</strong> {t('appetizing')}
+                <div dangerouslySetInnerHTML={{__html: t('description')}} />
             </p>
 
             <form onSubmit={handleSubmit}>

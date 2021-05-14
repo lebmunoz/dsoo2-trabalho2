@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { withNavigation } from 'react-navigation';
 import { Text, View, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
-
 import api from '../services/api'
 import {useTranslation} from "react-i18next";
 
 function RestaurantList({ dish, navigation }) {
   const [restaurants, setRestaurants] = useState([]);
-
   const { i18n } = useTranslation();
   const {t} = useTranslation('list');
   

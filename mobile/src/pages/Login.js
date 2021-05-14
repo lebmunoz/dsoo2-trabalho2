@@ -1,18 +1,14 @@
 import React, { useState, useEffect, Component } from 'react';
 import { View, KeyboardAvoidingView, /* Platform, */ Image, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 import api from '../services/api';
-
 import logo from '../assets/logo.png';
-
 import {useTranslation} from "react-i18next";
 
 export default function Login({ navigation }){
   const [email, setEmail] = useState('');
   const { i18n } = useTranslation();
   const {t} = useTranslation('login');
-  
   const [dishes, setDishes] = useState('');
 
   // useEffect(() => {
@@ -24,20 +20,13 @@ export default function Login({ navigation }){
   // }, []);
 
   async function handleSubmit() {
-    // email, dishes
-    console.log(email, dishes);
-
     const response = await api.post('/sessions', {
       email
     })
-
     const { _id } = response.data;
-
-    console.log(_id);
 
     await AsyncStorage.setItem('user', _id);
     await AsyncStorage.setItem('dishes', dishes);
-
     navigation.navigate('List');
   }
 
