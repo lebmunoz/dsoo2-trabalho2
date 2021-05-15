@@ -9,9 +9,9 @@
 
   "list": {
     "title": "Restaurants that have ",
-    "people": "/people",
+    "people": "/person",
     "free": "FREE",
-    "reservation": "Request reservation",
+    "reservation": "Request reserve",
     "return": "Return",
     "yourReservation": "You reservation in ",
     "in": " in ",
@@ -24,7 +24,7 @@
   "book": {
     "dateInterest": "DATE OF INTEREST *",
     "dateReserve": "DD/MM/YYYY",
-    "request": "Request book",
+    "request": "Request reserve",
     "cancel": "Cancel",
     "sendSolicitation": "Reservation request sent."
   }
