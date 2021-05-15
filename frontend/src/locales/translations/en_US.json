@@ -1,7 +1,7 @@
 {
   "login": {
     "insertEmail": "Insert your e-mail",
-    "description": "Offer <strong>restaurant</strong> reservations to your customers with appetizing <strong>dishes</strong>",
+    "description": "Offer <strong>restaurant</strong> reservations to your customers with tasty <strong>dishes</strong>",
     "email": "EMAIL *",
     "enter": "Enter"
   },
@@ -10,7 +10,7 @@
     "date": "for the date: ",
     "accept": "ACCEPT",
     "reject": "REJECT",
-    "people": "/people",
+    "people": "/person",
     "free": "FREE",
     "register": "Register new restaurant",
     "currency": "USD"
