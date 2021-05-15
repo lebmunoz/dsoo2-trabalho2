@@ -22,7 +22,7 @@
 
   "book": {
     "dateInterest": "DATE OF INTEREST *",
-    "dateReserve": "What date do you want to book?",
+    "dateReserve": "DD/MM/YYYY",
     "request": "Request book",
     "cancel": "Cancel",
     "sendSolicitation": "Reservation request sent."

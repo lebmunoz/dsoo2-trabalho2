@@ -17,6 +17,15 @@ export default function Dashboard() {
     query: { user_id },
   }), [user_id]);
 
+  const lan = useTranslation().i18n.language;
+  console.log(lan);
+
+  function formatarData(str) {
+    var partes = str.split('/').map(Number);
+    var data = new Date(partes[2], partes[1] - 1, partes[0]);
+    return data.toLocaleString(lan, { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
   useEffect(() => {
     socket.on('booking_request', data => {
       setRequests([...requests, data]);
@@ -52,7 +61,7 @@ export default function Dashboard() {
           {requests.map(request => (
               <li key={request._id}>
                 <p>
-                  <strong>{request.user.email}</strong> {t('requester')} <strong>{request.restaurant.name}</strong> {t('date')} <strong>{request.date}</strong>
+                  <strong>{request.user.email}</strong> {t('requester')} <strong>{request.restaurant.name}</strong> {t('date')} <strong>{formatarData(request.date)}</strong>
                 </p>
                 <button className="accept" onClick={() => handleAccept(request._id)}>{t('accept')}</button>
                 <button className="reject" onClick={() => handleReject(request._id)}>{t('reject')}</button>

@@ -29,12 +29,10 @@ export default function Book({ navigation }) {
 
   function english() {
     i18n.changeLanguage("en-US");
-    console.log(i18n);
   }
 
   function portuguese() {
     i18n.changeLanguage("pt-BR");
-    console.log(i18n);
   }
   
   return (
@@ -52,13 +50,13 @@ export default function Book({ navigation }) {
 
         <Text style={styles.label}>{t('dateInterest')}</Text>
         <TextInput
-          style={styles.input}
-          placeholder={t('dateReserve')}
-          placeholderTextColor="#999"
-          autoCapitalize="words"
-          autoCorrect={false}
-          value={date}
-          onChangeText={setDate}
+            style={styles.input}
+            placeholder={t('dateReserve')}
+            placeholderTextColor="#999"
+            autoCapitalize="words"
+            autoCorrect={false}
+            value={date}
+            onChangeText={setDate}
         />
 
         <TouchableOpacity onPress={handleSubmit} style={styles.button}>

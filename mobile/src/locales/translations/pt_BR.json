@@ -22,7 +22,7 @@
 
   "book": {
     "dateInterest": "DATA DE INTERESSE *",
-    "dateReserve": "Qual data você quer reservar?",
+    "dateReserve": "DD/MM/AAAA",
     "request": "Solicitar reserva",
     "cancel": "Cancelar",
     "sendSolicitation": "Solicitação de reserva enviada."
