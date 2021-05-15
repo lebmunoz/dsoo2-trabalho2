@@ -8,6 +8,7 @@ function RestaurantList({ dish, navigation }) {
   const [restaurants, setRestaurants] = useState([]);
   const { i18n } = useTranslation();
   const {t} = useTranslation('list');
+  const lan = useTranslation().i18n.language;
   
   useEffect(() => {
     async function loadRestaurants() {
@@ -24,6 +25,11 @@ function RestaurantList({ dish, navigation }) {
     navigation.navigate('Book', { id });
   }
 
+  function formatarMoeda(m) {
+    var moeda = new Intl.NumberFormat(lan, {style: 'currency', currency: t('currency')});
+    return moeda.format(m);
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{t('title')}<Text style={styles.bold}>{dish}</Text></Text>
@@ -38,7 +44,7 @@ function RestaurantList({ dish, navigation }) {
           <View style={styles.listItem}>
             <Image style={styles.image} source={{ uri: item.image_url }} />
             <Text style={styles.name}>{item.name}</Text>
-            <Text style={styles.price}>{item.price ? `R$${item.price}${t('people')}` : `${t('free')}`}</Text>
+            <Text style={styles.price}>{item.price ? `${formatarMoeda(item.price)}${t('people')}` : `${t('free')}`}</Text>
             <TouchableOpacity onPress={() => handleNavigate(item.id)} style={styles.button}>
               <Text style={styles.buttonText}>{t('reservation')}</Text>
             </TouchableOpacity>

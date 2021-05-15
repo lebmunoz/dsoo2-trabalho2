@@ -18,12 +18,16 @@ export default function Dashboard() {
   }), [user_id]);
 
   const lan = useTranslation().i18n.language;
-  console.log(lan);
 
   function formatarData(str) {
     var partes = str.split('/').map(Number);
     var data = new Date(partes[2], partes[1] - 1, partes[0]);
     return data.toLocaleString(lan, { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+  function formatarMoeda(m) {
+    var moeda = new Intl.NumberFormat(lan, {style: 'currency', currency: t('currency')});
+    return moeda.format(m);
   }
 
   useEffect(() => {
@@ -75,7 +79,7 @@ export default function Dashboard() {
                     style={{ backgroundImage: `url(${restaurant.image_url})` }}
                 ></header>
                 <strong>{restaurant.name}</strong>
-                <span>{restaurant.price ? `R$${restaurant.price}${t('people')}` : `${t('free')}`}</span>
+                <span>{restaurant.price ? `${formatarMoeda(restaurant.price)}${t('people')}` : `${t('free')}`}</span>
               </li>
           ))}
         </ul>

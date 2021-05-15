@@ -12,7 +12,8 @@
     "reject": "REJECT",
     "people": "/people",
     "free": "FREE",
-    "register": "Register new restaurant"
+    "register": "Register new restaurant",
+    "currency": "USD"
   },
   "new": {
     "name": "NAME *",

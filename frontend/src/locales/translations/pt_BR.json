@@ -12,7 +12,8 @@
     "reject": "REJEITAR",
     "people": "/pessoa",
     "free": "GRATUITO",
-    "register": "Cadastrar novo restaurante"
+    "register": "Cadastrar novo restaurante",
+    "currency": "BRL"
   },
   "new": {
     "name": "NOME *",

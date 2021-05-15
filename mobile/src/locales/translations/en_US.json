@@ -17,7 +17,8 @@
     "in": " in ",
     "was": " was ",
     "approved": "APPROVED",
-    "rejected": "REJECTED"
+    "rejected": "REJECTED",
+    "currency": "USD"
   },
 
   "book": {
