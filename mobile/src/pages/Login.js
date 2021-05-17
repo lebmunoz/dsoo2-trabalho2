@@ -32,12 +32,10 @@ export default function Login({ navigation }){
 
   function english() {
       i18n.changeLanguage("en-US");
-      console.log(i18n);
   }
 
   function portuguese() {
     i18n.changeLanguage("pt-BR");
-    console.log(i18n);
   }
 
   return (

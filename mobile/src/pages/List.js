@@ -13,7 +13,7 @@ export default function List({navigation}) {
 
   useEffect(() => {
     AsyncStorage.getItem('user').then(user_id => {
-      const socket = socketio('http://192.168.1.2:3333', {
+      const socket = socketio('http://192.168.1.8:3333', {
         query: { user_id }
       })
 
@@ -39,12 +39,10 @@ export default function List({navigation}) {
 
   function english() {
     i18n.changeLanguage("en-US");
-    console.log(i18n);
   }
 
   function portuguese() {
     i18n.changeLanguage("pt-BR");
-    console.log(i18n);
   }
   
   return (
